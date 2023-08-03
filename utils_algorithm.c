@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:37:48 by lxuxer            #+#    #+#             */
-/*   Updated: 2023/08/03 11:19:54 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/03 21:34:58 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	algorithm(t_list *stack_a, t_list *stack_b, t_struct result)
 
 	medi = median(result.argsi, result.len);
 	//cont = 0;
-	// if (is_sorted(stack_a))
-	// 	print_movements(stack_a, stack_b);
-	if (ft_lstsize(stack_a) == 2)
+	if (is_sorted(stack_a))
+		print_movements(stack_a, stack_b);
+	else if (ft_lstsize(stack_a) == 2)
 	{
 		swap_stack(&stack_a);
 		print_movements(stack_a, stack_b);
@@ -33,9 +33,9 @@ void	algorithm(t_list *stack_a, t_list *stack_b, t_struct result)
 	}
 	else if (ft_lstsize(stack_a) > 3)
 	{
-		stack_b = two_towers(stack_a, stack_b, medi);
+		two_towers(stack_a, stack_b, medi);
 		tiny_sort(stack_a, stack_b);
-		two_towers1(stack_a, stack_b);
+		two_towers1(stack_a, stack_b, result.len);
 	}
 }
 
@@ -59,42 +59,55 @@ void	tiny_sort(t_list *stack_a, t_list *stack_b)
 			reverse_stack(&stack_a);
 		//else
 		//	break ;
+		print_movements(stack_a, stack_b);
 	}
-	print_movements(stack_a, stack_b);
 }
 
-t_list	*two_towers(t_list *stack_a, t_list *stack_b, int medi)
+void	two_towers(t_list *stack_a, t_list *stack_b, int medi)
 {
 	int	i;
-	int	len;
+	int	len_a;
+	int	len_b;
 	int	top;
+	int	flag;
 
-	len = stack_len(stack_a) - 3;
-	i = 0;
+	flag = 0;
 	top = 0;
-	while (i < len)
+	i = 0;
+	len_a = stack_len(stack_a);
+	while (i < len_a - 3)
 	{
+		len_b = stack_len(stack_b);
 		if (*stack_a->content > medi && top < 3)
 		{
 			rotate_stack(&stack_a);
 			top++;
+			flag = 1;
 		}
-		push_stack(&stack_a, &stack_b);
-		if (stack_b != NULL && *stack_b->content <= medi)
+		else
+		{
+			push_stack(&stack_a, &stack_b);
+			i++;
+		}
+		if (len_b > 1 && *stack_b->content <= medi && flag == 0)
 		{
 			rotate_stack(&stack_b);
 		}
-		i++;
+		flag = 0;
+		print_movements(stack_a, stack_b);
 	}
-	print_movements(stack_a, stack_b);
-	return (stack_b);
 }
 
-void	two_towers1(t_list *stack_a, t_list *stack_b)
+void	two_towers1(t_list *stack_a, t_list *stack_b, int len)
 {
 	int	target;
 
-	target = cost_target(stack_a, stack_b);
-	ft_printf("target a mover: %d", target);
+	target = cost_target(stack_a, stack_b, len);
+	// rotate_stack(&stack_a);
+	// print_movements(stack_a, stack_b);
+	// push_stack(&stack_b, &stack_a);
+	// print_movements(stack_a, stack_b);
+	// target = cost_target(stack_a, stack_b, len);
+	ft_printf("target a mover: %d\n", target);
 	//print_movements(stack_a, stack_b);
 }

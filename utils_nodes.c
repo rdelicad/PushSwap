@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 18:22:22 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/01 18:22:10 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/03 18:19:22 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,30 +62,4 @@ void	assign_target(t_list **stack_a)
 		current->target = get_position(stack_a, *current->content);
 		current = current->next;
 	}
-}
-
-int	median(int *argsi, int len)
-{
-	int	*copy_argsi;
-	int	i;
-	int	j;
-	int	medi;
-
-	copy_argsi = malloc(sizeof(int) * (len + 1));
-	ft_memcpy(copy_argsi, argsi, len);
-	i = 0;
-	while (i < len - 1)
-	{
-		j = i + 1;
-		while (j < len)
-		{
-			if (*(copy_argsi + i) < *(copy_argsi + j))
-				ft_swap(copy_argsi + i, copy_argsi + j);
-			j++;
-		}
-		i++;
-	}
-	medi = copy_argsi[len / 2];
-	free(copy_argsi);
-	return (medi);
 }

@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:39:22 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/03 11:22:01 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/03 21:33:47 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,10 @@ t_list		*create_stack_a(int *argsi, int len);
 t_list		*create_nodes(int *argsi, int len);
 int			get_position(t_list **stack_a, int node_value);
 void		assign_target(t_list **stack_a);
-int			median(int *argsi, int len);
 
 /* utils_stack.c */
 void		free_memory_split(int ac, int i, char **args);
-void		free_memory_stacks(int *argsi, t_list *stack);
+void		free_memory_stacks(int *argsi, t_list *stack_a, t_list *stack_b);
 t_list		*end_stack(t_list *stack);
 int			is_sorted(t_list *stack);
 int			stack_len(t_list *stack);
@@ -52,15 +51,19 @@ t_list		*print_movements(t_list *stack_a, t_list *stack_b);
 /* Utils_algorithm.c */
 void		algorithm(t_list *stack_a, t_list *stack_b, t_struct result);
 void		tiny_sort(t_list *stack_a, t_list *stack_b);
-t_list		*two_towers(t_list *stack_a, t_list *stack_b, int medi);
-void		two_towers1(t_list *stack_a, t_list *stack_b);
+void		two_towers(t_list *stack_a, t_list *stack_b, int medi);
+void		two_towers1(t_list *stack_a, t_list *stack_b, int len);
 
 /* utils_towers.c */
 int			half(t_list *stack);
-int			costb(t_list *stack_b, int target);
-int			costa(t_list *stack_a, int target_b);
-int			search_target_a(t_list *stack_a, int target_b);
-int			cost_target(t_list *a, t_list *b);
+int			median(int *argsi, int len);
+int			*copy_argsi(int *argsi, int len);
 
+/* utils_cost.c */
+int			distance(int a, int b, int len);
+int			costb(t_list *stack_b, int target);
+int			costa(t_list *stack_a, int target_b, int len);
+int			search_target_a(t_list *stack_a, int target_b, int len);
+int			cost_target(t_list *a, t_list *b, int len);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 09:30:50 by lxuxer            #+#    #+#             */
-/*   Updated: 2023/08/03 11:22:43 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/03 20:09:09 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,91 +24,37 @@ int half(t_list *stack)
     return (half);
 }
 
-int costb(t_list *stack_b, int target)
+int	median(int *argsi, int len)
 {
-    t_list  *current;
-    int     i;
-    int     j;
-    int     len;
+	int	*copy;
+	int	medi;
 
-    len = stack_len(stack_b);
-    j = half(stack_b);
-    i = 0;
-    current = stack_b;
-    while (current != NULL)
+    copy = copy_argsi(argsi, len);
+	if (len % 2 == 1)
+		medi = copy[len / 2];
+	else
+		medi = (copy[len / 2 - 1] + copy[len / 2] / 2);
+	free(copy);
+	return (medi);
+}
+
+int *copy_argsi(int *argsi, int len)
+{
+    int *copy;
+    int i;
+
+    copy = malloc(sizeof(int) * (len + 1));
+    if (!copy)
     {
-        if (current->target == target)
-        {
-            if (i <= j)
-                return (i);
-            else
-                return (i - len - 1);
-        }
+        free(copy);
+        return (NULL);
+    }
+    i = 0;
+    while (i < len)
+    {
+		copy[i] = argsi[i];
         i++;
     }
-    return (i);
-}
-
-int	costa(t_list *stack_a, int target_b)
-{
-	t_list	*current;
-	int		i;
-	int		j;
-	int		target_a;
-	int		len;
-
-	len = stack_len(stack_a);
-	target_a = search_target_a(stack_a, target_b);
-	j = half(stack_a);
-	i = 0;
-	current = stack_a;
-	while (current != NULL)
-	{
-		if (current->target == target_a)
-		{
-			if (i <= j)
-				return (i);
-			else
-				return (i - len);
-		}
-		i++;
-		current = current->next;
-	}
-	return (i);
-}
-
-int	search_target_a(t_list *stack_a, int target_b)
-{
-	t_list	*current;
-	int		i;
-
-	i = 1;
-	current = stack_a;
-	while (current != NULL)
-	{
-		if (current->target == target_b + i)
-			return (current->target);
-		i++;
-	}
-	return (0);
-}
-
-int	cost_target(t_list *a, t_list *b)
-{
-	int min_cost;
-    // int costb_target;
-    // int costa_target;
-	int total_cost;
-
-	min_cost = INT_MAX;
-	while (b != NULL)
-	{
-        // costb_target = costb(b, b->target);
-        // costa_target = costa(a, b->target);
-        total_cost = costa(a, b->target) + costb(b, b->target);
-        if (min_cost > total_cost)
-            min_cost = total_cost;
-        b = b->next;
-    }
-    return (b->target);
+	copy[len] = '\0';
+    return (copy);
 }

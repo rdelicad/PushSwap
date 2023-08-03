@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 16:10:25 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/07/31 20:08:54 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/03 21:33:29 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,21 @@ void	free_memory_split(int ac, int i, char **args)
 	}
 }
 
-void	free_memory_stacks(int *argsi, t_list *stack)
+void	free_memory_stacks(int *argsi, t_list *stack_a, t_list *stack_b)
 {
 	t_list	*aux;
 
-	while (stack)
+	while (stack_a)
 	{
-		aux = stack->next;
-		free(stack);
-		stack = aux;
+		aux = stack_a->next;
+		free(stack_a);
+		stack_a = aux;
+	}
+	while (stack_b)
+	{
+		aux = stack_b->next;
+		free(stack_b);
+		stack_b = aux;
 	}
 	free(argsi);
 }
