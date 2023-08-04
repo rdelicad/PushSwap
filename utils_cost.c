@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util_cost.c                                        :+:      :+:    :+:   */
+/*   utils_cost.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:25:33 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/03 15:57:44 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/04 11:28:32 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ int	cost_target(t_list *a, t_list *b, int len)
 	int min_cost;
     int target;    
 	int total_cost;
+	int content;
 
     target = 0;
 	min_cost = INT_MAX;
@@ -114,8 +115,10 @@ int	cost_target(t_list *a, t_list *b, int len)
         {
             min_cost = total_cost;
             target = b->target;
+			content = *b->content;
         }
         b = b->next;
     }
+	ft_printf("TARGET: %d, Content: %d\n", target, content);
     return (target);
 }

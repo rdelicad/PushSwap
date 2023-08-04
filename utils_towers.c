@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 09:30:50 by lxuxer            #+#    #+#             */
-/*   Updated: 2023/08/03 20:09:09 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/04 12:35:40 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,23 @@ int	median(int *argsi, int len)
 {
 	int	*copy;
 	int	medi;
+    int i;
+    int j;
 
     copy = copy_argsi(argsi, len);
-	if (len % 2 == 1)
-		medi = copy[len / 2];
-	else
-		medi = (copy[len / 2 - 1] + copy[len / 2] / 2);
+    i = 0;
+    while (i < len - 1)
+    {
+        j = i + 1;
+        while (j < len)
+        {
+            if (copy[i] > copy [j])
+                ft_swap(&copy[i], &copy[j]);
+            j++;
+        }
+        i++;
+    }
+	medi = copy[i / 2];
 	free(copy);
 	return (medi);
 }

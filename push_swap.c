@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 16:28:49 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/03 19:39:40 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/04 10:43:42 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ int	main(int ac, char **av)
 		return (0);
 	result = convert_int_args(args);
 	stack_a = create_stack_a(result.argsi, result.len);
-	algorithm(stack_a, stack_b, result);
+	algorithm(&stack_a, &stack_b, result);
 	//ft_printf("Cantidad de numeros: %d\n", ft_lstsize(stack_a));
 	//ft_printf("Mitad: %d\n", half(stack_a));
 	//ft_printf("Mediana: %d\n", median(result.copy_argsi, result.len));

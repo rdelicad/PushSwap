@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:39:22 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/03 21:33:47 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/04 10:42:45 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ void		reverse_stack(t_list **stack_head);
 t_list		*print_movements(t_list *stack_a, t_list *stack_b);
 
 /* Utils_algorithm.c */
-void		algorithm(t_list *stack_a, t_list *stack_b, t_struct result);
-void		tiny_sort(t_list *stack_a, t_list *stack_b);
-void		two_towers(t_list *stack_a, t_list *stack_b, int medi);
-void		two_towers1(t_list *stack_a, t_list *stack_b, int len);
+void		algorithm(t_list **stack_a, t_list **stack_b, t_struct result);
+void		tiny_sort(t_list **stack_a, t_list **stack_b);
+void		two_towers(t_list **stack_a, t_list **stack_b, int medi);
+void		two_towers1(t_list **stack_a, t_list **stack_b, int len);
 
 /* utils_towers.c */
 int			half(t_list *stack);
