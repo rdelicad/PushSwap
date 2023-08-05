@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:11:26 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/01 20:12:48 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/05 22:44:35 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ t_list	*print_movements(t_list *stack_a, t_list *stack_b)
 		ft_printf("Pila vacia\n");
 	else
 	{
-		ft_printf("Pila A: \n");
+		ft_printf("\nPila A: \n");
 		while (tmp_a != NULL)
 		{
 			ft_printf("%i ", *(int *)(tmp_a->content));

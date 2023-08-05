@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 09:30:50 by lxuxer            #+#    #+#             */
-/*   Updated: 2023/08/04 12:35:40 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/05 22:43:31 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,3 +69,17 @@ int *copy_argsi(int *argsi, int len)
 	copy[len] = '\0';
     return (copy);
 }
+
+// void    move_stack_a(t_list **stack_a, int target)
+// {
+//     while (stack_a)
+//     {
+//         if ((*stack_a)->target > target)
+//         {
+//             if ((*stack_a)->target > half(*stack_a))
+//                 rotate_stack(stack_a);
+//             else
+//                 reverse_stack(stack_a);
+//         }
+//     }
+// }
