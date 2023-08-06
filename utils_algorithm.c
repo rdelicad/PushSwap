@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:37:48 by lxuxer            #+#    #+#             */
-/*   Updated: 2023/08/06 21:53:52 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/06 21:59:38 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,10 +111,10 @@ void	two_towers1(t_list **stack_a, t_list **stack_b, int len)
 	
 	print_movements(*stack_a, *stack_b);
 	//target_b = cost_target(*stack_a, *stack_b, len);
-	ft_printf("target a mover: %d\n", target_b);
+	//ft_printf("target a mover: %d\n", target_b);
 }
 
-void	two_towers2(t_list **stack_a, t_list **stack_b, int len)
-{
-	//two_towers1(stack_a, stack_b, len);
-}
+// void	two_towers2(t_list **stack_a, t_list **stack_b, int len)
+// {
+// 	//two_towers1(stack_a, stack_b, len);
+// }
