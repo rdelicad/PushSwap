@@ -23,7 +23,7 @@ NAME = push_swap
 # Define el archivo fuente del programa push_swap
 # Agrega aquí todos tus archivos fuente
 SRCS = push_swap.c utils_stacks.c utils_movements.c leaks.c utils_algorithm.c\
-		utils_towers.c utils_nodes.c utils_cost.c
+		utils_towers.c utils_nodes.c utils_cost.c utils_towers1.c
 		
 # Define los archivos objeto generados a partir de los fuente
 OBJS = $(SRCS:.c=.o)

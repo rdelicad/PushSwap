@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:39:22 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/05 22:40:02 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/06 20:49:14 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ typedef struct s_struct
 {
 	int	*argsi;
 	int	len;
+	int	nodes_a;
 	int	cont;
 }	t_struct;
 
@@ -30,6 +31,22 @@ typedef struct s_cost
 	int	cost_a;
 	int	cost_b;
 }	t_cost;
+
+typedef struct s_tower
+{
+	int	i;
+	int	len_a;
+	int	len_b;
+	int	top;
+	int	flag;
+}	t_tower;
+
+typedef struct s_move
+{
+	int	target_a;
+	int	posit;
+	int	len;
+}	t_move;
 
 /* push_swap.c */
 int			characters(char **args);
@@ -63,12 +80,7 @@ void		algorithm(t_list **stack_a, t_list **stack_b, t_struct result);
 void		tiny_sort(t_list **stack_a, t_list **stack_b);
 void		two_towers(t_list **stack_a, t_list **stack_b, int medi);
 void		two_towers1(t_list **stack_a, t_list **stack_b, int len);
-
-/* utils_towers.c */
-int			half(t_list *stack);
-int			median(int *argsi, int len);
-int			*copy_argsi(int *argsi, int len);
-//void		move_stack_a(t_list **stack_a, int target);
+void		two_towers2(t_list **stack_a, t_list **stack_b, int len);
 
 /* utils_cost.c */
 int			distance(int a, int b);
@@ -76,5 +88,17 @@ int			costb(t_list *stack_b, int target, int len);
 int			costa(t_list *stack_a, int target_b);
 int			search_target_a(t_list *stack_a, int target_b);
 int			cost_target(t_list *a, t_list *b, int len);
+
+/* utils_towers.c */
+int			half(t_list *stack);
+int			median(int *argsi, int len);
+int			*copy_argsi(int *argsi, int len);
+void		move_stack_a(t_list **stack_a, int target);
+int			position_target_a(t_list *stack_a, int  target_a);
+
+/* utils_towers1.c */
+void		move_a(t_list **stack_a, int target_b, t_move m);
+void   		b_minor_a(t_list **stack_a, int target_b, t_move m);
+void		b_mayor_a(t_list **stack_a, int targer_b, t_move m);
 
 #endif
