@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 09:30:50 by lxuxer            #+#    #+#             */
-/*   Updated: 2023/08/06 16:39:59 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/07 22:05:37 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void    move_stack_a(t_list **stack_a, int target_b)
     m.target_a = search_target_a(*stack_a, target_b);
     m.posit = position_target_a(*stack_a, m.target_a);
     move_a(stack_a, target_b, m);
-    ft_printf("target a: %d\n", m.target_a);
+    //ft_printf("target a: %d\n", m.target_a);
 }
 
 int position_target_a(t_list *stack_a, int  target_a)

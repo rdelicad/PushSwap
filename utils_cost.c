@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:25:33 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/06 20:40:28 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/07 22:06:38 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,6 @@ int	cost_target(t_list *a, t_list *b, int len)
         }
         b = b->next;
     }
-	ft_printf("TARGET: %d, Content: %d\n", cost.target_b, content);
+	//ft_printf("TARGET: %d, Content: %d\n", cost.target_b, content);
     return (cost.target_b);
 }

@@ -6,14 +6,13 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:11:26 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/06 18:07:51 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/07 22:16:43 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
 
-//intercambia los primeros elementos encima de stack A
 void	swap_stack(t_list **stack)
 {
 	t_list	*first;
@@ -29,6 +28,7 @@ void	swap_stack(t_list **stack)
 		second->next = first;
 		*stack = second;
 	}
+	ft_printf("sa");
 }
 
 void	push_stack(t_list **stack_init, t_list **stack_end)
@@ -44,6 +44,7 @@ void	push_stack(t_list **stack_init, t_list **stack_end)
 	}
 	else
 		return ;
+	ft_printf("pa");
 }
 
 void	rotate_stack(t_list **stack_head)
@@ -60,6 +61,7 @@ void	rotate_stack(t_list **stack_head)
 	*stack_head = (*stack_head)->next;
 	head->next = NULL;
 	tail->next = head;
+	ft_printf("ra");
 }
 
 void	reverse_stack(t_list **stack_head)
@@ -78,6 +80,7 @@ void	reverse_stack(t_list **stack_head)
 	head->next = NULL;
 	tail->next = *stack_head;
 	*stack_head = tail;
+	ft_printf("rr");
 }
 
 t_list	*print_movements(t_list *stack_a, t_list *stack_b)

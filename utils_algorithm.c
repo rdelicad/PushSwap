@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:37:48 by lxuxer            #+#    #+#             */
-/*   Updated: 2023/08/06 21:59:38 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/07 22:04:41 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	algorithm(t_list **stack_a, t_list **stack_b, t_struct result)
 	else if (ft_lstsize(*stack_a) == 2)
 	{
 		swap_stack(stack_a);
-		print_movements(*stack_a, *stack_b);
+		//print_movements(*stack_a, *stack_b);
 	}
 	else if (ft_lstsize(*stack_a) == 3)
 	{
@@ -36,6 +36,7 @@ void	algorithm(t_list **stack_a, t_list **stack_b, t_struct result)
 		two_towers1(stack_a, stack_b, result.len);
 		while ((*stack_b) != NULL)
 			two_towers1(stack_a, stack_b, result.len);
+		two_towers2(stack_a, stack_b);
 	}
 	//ft_printf("Mediana: %d\n", medi);
 }
@@ -59,9 +60,9 @@ void	tiny_sort(t_list **stack_a, t_list **stack_b)
 		else if ((a < b && a > c) || (a < b && a < c && b > c))
 			reverse_stack(stack_a);
 	}
-	print_movements(*stack_a, *stack_b);
+	//print_movements(*stack_a, *stack_b);
 }
-// comprobar si puedo quitar la linea t.top
+
 void	two_towers(t_list **stack_a, t_list **stack_b, int medi)
 {
 	t_tower	t;
@@ -90,7 +91,7 @@ void	two_towers(t_list **stack_a, t_list **stack_b, int medi)
 		}
 		t.flag = 0;
 	}
-	print_movements(*stack_a, *stack_b);
+	//print_movements(*stack_a, *stack_b);
 }
 
 void	two_towers1(t_list **stack_a, t_list **stack_b, int len)
@@ -109,12 +110,21 @@ void	two_towers1(t_list **stack_a, t_list **stack_b, int len)
 	if (current && current->target == target_b)
 		push_stack(stack_b, stack_a);
 	
-	print_movements(*stack_a, *stack_b);
+	//print_movements(*stack_a, *stack_b);
 	//target_b = cost_target(*stack_a, *stack_b, len);
 	//ft_printf("target a mover: %d\n", target_b);
 }
 
-// void	two_towers2(t_list **stack_a, t_list **stack_b, int len)
-// {
-// 	//two_towers1(stack_a, stack_b, len);
-// }
+void	two_towers2(t_list **stack_a, t_list **stack_b)
+{
+	while ((*stack_a)->target != 0)
+	{
+		reverse_stack(stack_a);
+		if ((*stack_a)->target == 1)
+			break;
+	}
+	//print_movements(*stack_a, *stack_b);
+	if (is_sorted(*stack_a))
+		ft_printf("Todo correcto\n");
+	
+}
