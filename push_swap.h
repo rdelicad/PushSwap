@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:39:22 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/07 21:50:24 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/07 22:22:24 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_cost
 	int	target_a;
 	int	target_b;
 	int	min_cost;
+	int	content;
 	int	total_cost;
 	int	cost_a;
 	int	cost_b;
@@ -77,10 +78,10 @@ t_list		*print_movements(t_list *stack_a, t_list *stack_b);
 
 /* Utils_algorithm.c */
 void		algorithm(t_list **stack_a, t_list **stack_b, t_struct result);
-void		tiny_sort(t_list **stack_a, t_list **stack_b);
+void		tiny_sort(t_list **stack_a);
 void		two_towers(t_list **stack_a, t_list **stack_b, int medi);
 void		two_towers1(t_list **stack_a, t_list **stack_b, int len);
-void		two_towers2(t_list **stack_a, t_list **stack_b);
+void		two_towers2(t_list **stack_a);
 
 /* utils_cost.c */
 int			distance(int a, int b);

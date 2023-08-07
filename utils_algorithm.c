@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:37:48 by lxuxer            #+#    #+#             */
-/*   Updated: 2023/08/07 22:04:41 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/07 22:24:05 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,22 @@ void	algorithm(t_list **stack_a, t_list **stack_b, t_struct result)
 	}
 	else if (ft_lstsize(*stack_a) == 3)
 	{
-		tiny_sort(stack_a, stack_b);
+		tiny_sort(stack_a);
 	}
 	else if (ft_lstsize(*stack_a) > 3)
 	{
 		two_towers(stack_a, stack_b, medi);
-		tiny_sort(stack_a, stack_b);
+		tiny_sort(stack_a);
 		two_towers1(stack_a, stack_b, result.len);
 		while ((*stack_b) != NULL)
 			two_towers1(stack_a, stack_b, result.len);
-		two_towers2(stack_a, stack_b);
+		two_towers2(stack_a);
 	}
 	//ft_printf("Mediana: %d\n", medi);
 }
 
 
-void	tiny_sort(t_list **stack_a, t_list **stack_b)
+void	tiny_sort(t_list **stack_a)
 {
 	int	a;
 	int	b;
@@ -115,7 +115,7 @@ void	two_towers1(t_list **stack_a, t_list **stack_b, int len)
 	//ft_printf("target a mover: %d\n", target_b);
 }
 
-void	two_towers2(t_list **stack_a, t_list **stack_b)
+void	two_towers2(t_list **stack_a)
 {
 	while ((*stack_a)->target != 0)
 	{
@@ -124,7 +124,7 @@ void	two_towers2(t_list **stack_a, t_list **stack_b)
 			break;
 	}
 	//print_movements(*stack_a, *stack_b);
-	if (is_sorted(*stack_a))
-		ft_printf("Todo correcto\n");
+	// if (is_sorted(*stack_a))
+	// 	ft_printf("Todo correcto\n");
 	
 }

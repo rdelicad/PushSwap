@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:25:33 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/07 22:06:38 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/07 22:22:49 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ int	costa(t_list *stack_a, int target_b)
 int	cost_target(t_list *a, t_list *b, int len)
 {
 	t_cost	cost;
-	int content;
 
     cost.target_b = 0;
 	cost.min_cost = INT_MAX;
@@ -117,7 +116,7 @@ int	cost_target(t_list *a, t_list *b, int len)
         {
             cost.min_cost = cost.total_cost;
             cost.target_b = b->target;
-			content = *b->content;
+			cost.content = *b->content;
         }
         b = b->next;
     }
