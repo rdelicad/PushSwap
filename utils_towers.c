@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 09:30:50 by lxuxer            #+#    #+#             */
-/*   Updated: 2023/08/07 22:05:37 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/08 18:17:24 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int half(t_list *stack)
 
     if ((stack_len(stack) % 2) == 0)
         half = stack_len(stack) / 2;
-    else if ((stack_len(stack) % 2) != 0)
+    else
         half = stack_len(stack) / 2 + 1;
     return (half);
 }
