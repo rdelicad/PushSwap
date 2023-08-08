@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:25:33 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/07 22:22:49 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/08 13:19:48 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,24 @@
 int costb(t_list *stack_b, int target, int len)
 {
     t_list  *current;
-    int     num;
-    int     j;
+	t_cost	c;
 
     len = stack_len(stack_b);
-    j = half(stack_b);
-    num = 0;
+    c.half = half(stack_b);
+    c.costb = 0;
     current = stack_b;
     while (current != NULL)
     {
         if (current->target == target)
         {
-            if (num <= j)
-                return (num);
+            if (c.costb <= c.half)
+                return (c.costb);
             else
-                return (len - num - 1);
+                return (len - c.costb - 1);
         }
-        num++;
+        c.costb++;
     }
-    return (num);
+    return (c.costb);
 }
 
 int	search_target_a(t_list *stack_a, int target_b)
@@ -43,21 +42,27 @@ int	search_target_a(t_list *stack_a, int target_b)
 	int		min_distance;
 	int		target_a;
 	int		dist;
+	int		lower;
 
+	lower = INT_MIN;
 	target_a = 0;
 	min_distance = INT_MAX;
 	current = stack_a;
 	while (current != NULL)
 	{
 		dist = distance(current->target, target_b);
-		if (dist < min_distance)
+		if (dist <= min_distance)
 		{
 			min_distance = dist;
 			target_a = current->target;
 		}
-		current->distance = dist;
+		if (current->target < target_b && current->target > lower)
+			lower = current->target;
 		current = current->next;
 	}
+	if (lower != INT_MIN)
+		target_a = lower;
+	/* ft_printf ("target a: %d\n", target_a); */
 	return (target_a);
 }
 
@@ -74,52 +79,47 @@ int	distance(int a, int b)
 int	costa(t_list *stack_a, int target_b)
 {
 	t_list	*current;
-	int		i;
-	int		j;
-	int		target_a;
-	int		len_stack;
+	t_cost	c;
 
-	len_stack = stack_len(stack_a);
-	target_a = search_target_a(stack_a, target_b);
-	j = half(stack_a);
-	i = 0;
+	c.len_stack = stack_len(stack_a);
+	c.target_a = search_target_a(stack_a, target_b);
+	c.half = half(stack_a);
+	c.costa = 0;
 	current = stack_a;
 	while (current != NULL)
 	{
-		if (current->target == target_a)
+		if (current->target == c.target_a)
 		{
-			if (i < j)
-				return (i);
+			if (c.costa < c.half)
+				return (c.costa);
 			else
-				return (len_stack - i);
+				return (c.len_stack - c.costa);
 		}
-		i++;
+		c.costa++;
 		current = current->next;
 	}
-	return (i);
+	return (c.costa);
 }
-
-
 
 int	cost_target(t_list *a, t_list *b, int len)
 {
-	t_cost	cost;
+	t_cost	c;
 
-    cost.target_b = 0;
-	cost.min_cost = INT_MAX;
-	cost.cost_a = costa(a, b->target);
-	cost.cost_b = costb(b, b->target, len);
+    c.target_b = 0;
+	c.min_cost = INT_MAX;
+	c.costa = costa(a, b->target);
+	c.costb = costb(b, b->target, len);
 	while (b != NULL)
 	{
-        cost.total_cost = cost.cost_a + cost.cost_b + b->distance;
-        if (cost.min_cost > cost.total_cost)
+        c.total_cost = c.costa + c.costb;
+        if (c.min_cost > c.total_cost)
         {
-            cost.min_cost = cost.total_cost;
-            cost.target_b = b->target;
-			cost.content = *b->content;
+            c.min_cost = c.total_cost;
+            c.target_b = b->target;
+			c.content = *b->content;
         }
         b = b->next;
     }
-	//ft_printf("TARGET: %d, Content: %d\n", cost.target_b, content);
-    return (cost.target_b);
+	/* ft_printf("Target b: %d, Content: %d\n", c.target_b, c.content); */
+    return (c.target_b);
 }

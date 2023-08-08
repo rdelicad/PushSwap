@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:39:22 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/07 22:22:24 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/08 14:07:42 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ typedef struct s_cost
 	int	target_a;
 	int	target_b;
 	int	min_cost;
-	int	content;
 	int	total_cost;
-	int	cost_a;
-	int	cost_b;
+	int len_stack;
+	int	half;
+	int	content;
+	int	costa;
+	int	costb;
 }	t_cost;
 
 typedef struct s_tower
@@ -70,18 +72,38 @@ int			is_sorted(t_list *stack);
 int			stack_len(t_list *stack);
 
 /* utils_movements.c */
-void		swap_stack(t_list **stack);
-void		push_stack(t_list **stack_init, t_list **stack_end);
-void		rotate_stack(t_list **stack_init);
-void		reverse_stack(t_list **stack_head);
 t_list		*print_movements(t_list *stack_a, t_list *stack_b);
+
+/* utils_swap.c */
+void		swap_stack(t_list **stack);
+void		swap_a(t_list **stack_a);
+void		swap_b(t_list **stack_b);
+void		swap_s(t_list **stack_a, t_list **stack_b);
+
+/* utils_rotate.c */
+void		rotate_stack(t_list **stack_init);
+void		rotate_a(t_list **stack_a);
+void		rotate_b(t_list **stack_b);
+void		rotate_r(t_list **stack_a, t_list **stack_b);
+
+/* utils_push.c */
+void		push_stack(t_list **stack_init, t_list **stack_end);
+void		push_a(t_list **stack_a, t_list **stack_b);
+void		push_b(t_list **stack_b, t_list **stack_a);
+
+/* utils_reverse.c */
+void		reverse_stack(t_list **stack_head);
+void		reverse_a(t_list **stack_a);
+void		reverse_b(t_list **stack_b);
+void		reverse_r(t_list **stack_a, t_list **stack_b);
+
 
 /* Utils_algorithm.c */
 void		algorithm(t_list **stack_a, t_list **stack_b, t_struct result);
-void		tiny_sort(t_list **stack_a);
+void		tiny_sort(t_list **stack_a, t_list **stack_b);
 void		two_towers(t_list **stack_a, t_list **stack_b, int medi);
 void		two_towers1(t_list **stack_a, t_list **stack_b, int len);
-void		two_towers2(t_list **stack_a);
+void		two_towers2(t_list **stack_a, t_list **stack_b);
 
 /* utils_cost.c */
 int			distance(int a, int b);
