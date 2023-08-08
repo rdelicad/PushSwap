@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:37:48 by lxuxer            #+#    #+#             */
-/*   Updated: 2023/08/08 14:09:44 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/08 17:11:46 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void	two_towers(t_list **stack_a, t_list **stack_b, int medi)
 		}
 		if (t.len_b > 1 && *((*stack_b)->content) <= medi && t.flag == 0)
 		{
+			if (*((*stack_b)->next->content) > medi)
 			rotate_b(stack_b);
 		}
 		t.flag = 0;

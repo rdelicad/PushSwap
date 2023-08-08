@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:39:22 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/08 14:07:42 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:36:15 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ int			stack_len(t_list *stack);
 
 /* utils_movements.c */
 t_list		*print_movements(t_list *stack_a, t_list *stack_b);
+void		move_stack_b(t_list **stack_a, t_list	**stack_b);
+
 
 /* utils_swap.c */
 void		swap_stack(t_list **stack);
