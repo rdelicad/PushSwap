@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:39:22 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/08 16:36:15 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/10 20:20:19 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_cost
 	int	content;
 	int	costa;
 	int	costb;
+	int	i;
 }	t_cost;
 
 typedef struct s_tower
@@ -50,6 +51,14 @@ typedef struct s_move
 	int	posit;
 	int	len;
 }	t_move;
+
+typedef struct s_search_a
+{
+	int min;
+	int	dist;
+	int	target_a;
+	int	lower;
+}	t_search;
 
 /* push_swap.c */
 int			characters(char **args);
@@ -108,11 +117,11 @@ void		two_towers1(t_list **stack_a, t_list **stack_b, int len);
 void		two_towers2(t_list **stack_a, t_list **stack_b);
 
 /* utils_cost.c */
-int			distance(int a, int b);
-int			costb(t_list *stack_b, int target, int len);
-int			costa(t_list *stack_a, int target_b);
-int			search_target_a(t_list *stack_a, int target_b);
-int			cost_target(t_list *a, t_list *b, int len);
+void		costb(t_list *stack_b, int len);
+void		costa(t_list *stack_a, int target_b);
+int			search_lower_a(t_list *stack_a, int target_b);
+int			search_upper_a(t_list *stack_a, int target_b);
+int			cost_target(t_list *stack_a, t_list *stack_b, int len);
 
 /* utils_towers.c */
 int			half(t_list *stack);
