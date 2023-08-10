@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:39:22 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/10 20:20:19 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/10 22:59:45 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,10 @@ void		costb(t_list *stack_b, int len);
 void		costa(t_list *stack_a, int target_b);
 int			search_lower_a(t_list *stack_a, int target_b);
 int			search_upper_a(t_list *stack_a, int target_b);
-int			cost_target(t_list *stack_a, t_list *stack_b, int len);
+void		assig_cost_nodes(t_list *stack_a, t_list *stack_b, int len);
+
+/* utils_cost1.c */
+int			get_cost_targets(t_list *stack_a, t_list *stack_b, int len);
 
 /* utils_towers.c */
 int			half(t_list *stack);

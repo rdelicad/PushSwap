@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:37:48 by lxuxer            #+#    #+#             */
-/*   Updated: 2023/08/09 15:28:06 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/10 23:00:37 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,22 +99,24 @@ void two_towers(t_list **stack_a, t_list **stack_b, int medi)
 void two_towers1(t_list **stack_a, t_list **stack_b, int len)
 {
 	t_list *current;
-	int target_b;
 
-	//ft_printf("AAn");
 	current = *stack_b;
-	target_b = cost_target(*stack_a, *stack_b, len);
-	move_stack_a(stack_a, target_b);
-	while (current && current->target != target_b)
-	{
-		rotate_b(stack_b);
-		current = (*stack_b);
-	}
-	if (current && current->target == target_b)
-		push_a(stack_b, stack_a);
-	print_movements(*stack_a, *stack_b);
-	// target_b = cost_target(*stack_a, *stack_b, len);
-	/* ft_printf("target a mover: %d\n", target_b); */
+	get_cost_target(*stack_a, *stack_b, len);
+	
+
+
+
+
+
+	// move_stack_a(stack_a, target_b);
+	// while (current && current->target != target_b)
+	// {
+	// 	rotate_b(stack_b);
+	// 	current = (*stack_b);
+	// }
+	// if (current && current->target == target_b)
+	// 	push_a(stack_b, stack_a);
+	// print_movements(*stack_a, *stack_b);
 }
 
 void two_towers2(t_list **stack_a, t_list **stack_b)

@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:25:33 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/10 20:30:00 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/10 23:36:59 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int	search_upper_a(t_list *stack_a, int target_b)
 	}
 	if (s.target_a == 0)
 		search_lower_a(stack_a, target_b);
-	/* ft_printf ("target a: %d\n", target_a); */
 	return (s.target_a);
 }
 
@@ -101,21 +100,34 @@ int	search_lower_a(t_list *stack_a, int target_b)
 }
 
 
-int	cost_target(t_list *stack_a, t_list *stack_b, int len)
+void	assig_cost_nodes(t_list *stack_a, t_list *stack_b, int len)
 {
 	t_list	*a;
 	t_list	*b;
 	t_cost	c;
 
-    c.target_b = 0;
-	c.min_cost = len;
-	b = stack_b;
 	a = stack_a;
+	b = stack_b;
+	costb(b, len);
 	while (b != NULL)
 	{
-        c.total_cost = a->costa + b->costb;
-        b = b->next;
-    }
-	/* ft_printf("Target b: %d, Content: %d\n", c.target_b, c.content); */
-    return (c.target_b);
+		costa(a, b->target);
+		if (a->costa > 0 && b->costb > 0)
+		{
+			if (a->costa > b->costb)
+				c.total_cost = a->costa;
+			else
+				c.total_cost = b->costb;
+		}
+		else if (a->costa < 0 && b->costb < 0)
+		{
+			if (a->costa < b->costb)
+				c.total_cost = a->costa;
+			else
+				c.total_cost = b->costb;
+		}
+		else
+			c.total_cost = abs(a->costa) + abs(b->costb) + 1;
+		b = b->next;
+	}
 }
