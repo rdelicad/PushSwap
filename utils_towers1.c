@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 12:25:58 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/06 21:06:48 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/09 15:32:12 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@ void    b_minor_a(t_list **stack_a, int target_b, t_move m)
         {
             while (m.posit < m.len - 1)
             {
-                reverse_stack(stack_a);
+                reverse_a(stack_a);
                 m.posit++;
             }
             if (m.posit == m.len - 1)
-                reverse_stack(stack_a);
+                reverse_a(stack_a);
         }
         else
         {
             while (m.posit > 0)
             {
-                rotate_stack(stack_a);
+                rotate_a(stack_a);
                 m.posit--;
             }
         }
@@ -59,17 +59,17 @@ void    b_mayor_a(t_list **stack_a, int target_b, t_move m)
         {
             while (m.posit > 0)
             {
-                rotate_stack(stack_a);
+                rotate_a(stack_a);
                 m.posit--;
             }
             if (m.posit == 0)
-                rotate_stack(stack_a);
+                rotate_a(stack_a);
         }
         else
         {
             while (m.posit < m.len - 1)
             {
-                reverse_stack(stack_a);
+                reverse_a(stack_a);
                 m.posit++;
             }
         }

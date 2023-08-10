@@ -6,21 +6,21 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:11:26 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/08 17:53:00 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/09 15:32:32 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
 
-t_list	*print_movements(t_list *stack_a, t_list *stack_b)
+t_list *print_movements(t_list *stack_a, t_list *stack_b)
 {
-	const t_list	*tmp_a;
-	const t_list	*tmp_b;
+	const t_list *tmp_a;
+	const t_list *tmp_b;
 
 	tmp_a = stack_a;
 	tmp_b = stack_b;
-	if (1 == 1)
+	if (1 == 0)
 	{
 		if (stack_a == NULL)
 			ft_printf("Pila vacia\n");
@@ -49,5 +49,4 @@ t_list	*print_movements(t_list *stack_a, t_list *stack_b)
 		ft_printf("-------------------------------\n\n");
 	}
 	return (0);
-		
 }

@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:25:33 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/08 13:19:48 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/10 18:31:20 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int costb(t_list *stack_b, int target, int len)
 
     len = stack_len(stack_b);
     c.half = half(stack_b);
-    c.costb = 0;
     current = stack_b;
     while (current != NULL)
     {
