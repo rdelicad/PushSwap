@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:37:48 by lxuxer            #+#    #+#             */
-/*   Updated: 2023/08/10 23:00:37 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/11 16:45:10 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,10 @@ void two_towers(t_list **stack_a, t_list **stack_b, int medi)
 
 void two_towers1(t_list **stack_a, t_list **stack_b, int len)
 {
-	t_list *current;
+	t_cost	c;
 
-	current = *stack_b;
-	get_cost_target(*stack_a, *stack_b, len);
+	c.target_b = min_cost(*stack_a, *stack_b, len);
+	ft_printf("target_b a mover: %d", c.target_b);
 	
 
 

@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:25:33 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/10 23:36:59 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/11 16:12:16 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ void	assig_cost_nodes(t_list *stack_a, t_list *stack_b, int len)
 {
 	t_list	*a;
 	t_list	*b;
-	t_cost	c;
 
 	a = stack_a;
 	b = stack_b;
@@ -112,22 +111,6 @@ void	assig_cost_nodes(t_list *stack_a, t_list *stack_b, int len)
 	while (b != NULL)
 	{
 		costa(a, b->target);
-		if (a->costa > 0 && b->costb > 0)
-		{
-			if (a->costa > b->costb)
-				c.total_cost = a->costa;
-			else
-				c.total_cost = b->costb;
-		}
-		else if (a->costa < 0 && b->costb < 0)
-		{
-			if (a->costa < b->costb)
-				c.total_cost = a->costa;
-			else
-				c.total_cost = b->costb;
-		}
-		else
-			c.total_cost = abs(a->costa) + abs(b->costb) + 1;
 		b = b->next;
 	}
 }
