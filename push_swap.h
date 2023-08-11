@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:39:22 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/11 19:40:18 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/11 22:39:15 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,11 +117,11 @@ void		two_towers1(t_list **stack_a, t_list **stack_b);
 void		two_towers2(t_list **stack_a, t_list **stack_b);
 
 /* utils_cost.c */
-void		costb(t_list *stack_b, int len);
-void		costa(t_list *stack_a, int target_b);
+void		costb(t_list *stack_b);
+int			costa(t_list *stack_a, int target_b);
 int			search_lower_a(t_list *stack_a, int target_b);
 int			search_upper_a(t_list *stack_a, int target_b);
-void		assig_cost_nodes(t_list *stack_a, t_list *stack_b, int len);
+void		assig_cost_nodes(t_list *stack_a, t_list *stack_b);
 
 /* utils_cost1.c */
 void		get_cost_total(t_list *stack_a, t_list *stack_b);

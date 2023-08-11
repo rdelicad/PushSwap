@@ -6,54 +6,58 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:25:33 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/11 18:00:21 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/11 22:39:03 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
 
-void	costb(t_list *stack_b, int len)
+void	costb(t_list *stack_b)
 {
     t_list  *current;
 	t_cost	c;
+	int		i;
 
-    len = stack_len(stack_b);
+    c.len_stack = stack_len(stack_b);
     c.half = half(stack_b);
     current = stack_b;
-	c.i = 0;
-    while (c.i < len)
+	i = 0;
+    while (i < c.len_stack)
     {
-		if (current->costb >= c.half)
-			current->costb = c.i;
+		if (i < c.half)
+			current->costb = i;
 		else
-			current->costb = c.i - len - 1;
-		c.i++;
+			current->costb = i - c.len_stack;
+		i++;
+		current = current->next;
     }
 }
 
-void	costa(t_list *stack_a, int target_b)
+int	costa(t_list *stack_a, int target_b)
 {
 	t_list	*current;
 	t_cost	c;
+	int		i;
 
 	c.len_stack = stack_len(stack_a);
 	c.target_a = search_upper_a(stack_a, target_b);
 	c.half = half(stack_a);
-	c.costa = 0;
+	i = 0;
 	current = stack_a;
 	while (current != NULL)
 	{
 		if (current->target == c.target_a)
 		{
-			if (c.costa < c.half)
-				current->costa = c.costa;
+			if (i < c.half)
+				c.costa = i;
 			else
-				current->costa = c.costa - c.len_stack -1;
+				c.costa = i- c.len_stack;
 		}
-		c.costa++;
+		i++;
 		current = current->next;
 	}
+	return (c.costa);
 }
 
 int	search_upper_a(t_list *stack_a, int target_b)
@@ -101,14 +105,14 @@ int	search_lower_a(t_list *stack_a, int target_b)
 }
 
 
-void	assig_cost_nodes(t_list *stack_a, t_list *stack_b, int len)
+void	assig_cost_nodes(t_list *stack_a, t_list *stack_b)
 {
 	t_list	*a;
 	t_list	*b;
 
 	a = stack_a;
 	b = stack_b;
-	costb(b, len);
+	costb(b);
 	while (b != NULL)
 	{
 		costa(a, b->target);
