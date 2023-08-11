@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:37:48 by lxuxer            #+#    #+#             */
-/*   Updated: 2023/08/11 18:42:11 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/11 19:41:07 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ void algorithm(t_list **stack_a, t_list **stack_b, t_struct result)
 		two_towers(stack_a, stack_b, medi);
 		// ft_printf("--%d--", *((*stack_a)->content));
 		tiny_sort(stack_a, stack_b);
-		//two_towers1(stack_a, stack_b, result.len);
-		while ((*stack_b) != NULL)
-			two_towers1(stack_a, stack_b, result.len);
-		two_towers2(stack_a, stack_b);
+		two_towers1(stack_a, stack_b);
+		// while ((*stack_b) != NULL)
+		// 	two_towers1(stack_a, stack_b, result.len);
+		// two_towers2(stack_a, stack_b);
 	}
 	// ft_printf("--%d--", *((*stack_a)->content));
 	//  ft_printf("Mediana: %d\n", medi);
@@ -96,18 +96,12 @@ void two_towers(t_list **stack_a, t_list **stack_b, int medi)
 	print_movements(*stack_a, *stack_b);
 }
 
-void two_towers1(t_list **stack_a, t_list **stack_b, int len)
+void two_towers1(t_list **stack_a, t_list **stack_b)
 {
 	t_cost	c;
 
-	c.target_b = min_cost(*stack_a, *stack_b, len);
+	c.target_b = get_min_cost(*stack_a, *stack_b);
 	ft_printf("target_b a mover: %d", c.target_b);
-	
-
-
-
-
-
 	// move_stack_a(stack_a, target_b);
 	// while (current && current->target != target_b)
 	// {
@@ -116,7 +110,7 @@ void two_towers1(t_list **stack_a, t_list **stack_b, int len)
 	// }
 	// if (current && current->target == target_b)
 	// 	push_a(stack_b, stack_a);
-	// print_movements(*stack_a, *stack_b);
+	print_movements(*stack_a, *stack_b);
 }
 
 void two_towers2(t_list **stack_a, t_list **stack_b)

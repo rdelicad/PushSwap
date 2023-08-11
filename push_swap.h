@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:39:22 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/11 17:34:36 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/11 19:40:18 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void		reverse_r(t_list **stack_a, t_list **stack_b);
 void		algorithm(t_list **stack_a, t_list **stack_b, t_struct result);
 void		tiny_sort(t_list **stack_a, t_list **stack_b);
 void		two_towers(t_list **stack_a, t_list **stack_b, int medi);
-void		two_towers1(t_list **stack_a, t_list **stack_b, int len);
+void		two_towers1(t_list **stack_a, t_list **stack_b);
 void		two_towers2(t_list **stack_a, t_list **stack_b);
 
 /* utils_cost.c */
@@ -124,8 +124,8 @@ int			search_upper_a(t_list *stack_a, int target_b);
 void		assig_cost_nodes(t_list *stack_a, t_list *stack_b, int len);
 
 /* utils_cost1.c */
-int			get_cost_targets(t_list *stack_a, t_list *stack_b, int target, int len);
-int			min_cost(t_list *stack_a, t_list *stack_b, int len);
+void		get_cost_total(t_list *stack_a, t_list *stack_b);
+int			get_min_cost(t_list *stack_a, t_list *stack_b);
 
 /* utils_towers.c */
 int			half(t_list *stack);
