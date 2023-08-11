@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:25:33 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/11 16:12:16 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/11 18:00:21 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	costb(t_list *stack_b, int len)
 			current->costb = c.i;
 		else
 			current->costb = c.i - len - 1;
+		c.i++;
     }
 }
 

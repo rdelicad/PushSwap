@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:37:48 by lxuxer            #+#    #+#             */
-/*   Updated: 2023/08/11 16:45:10 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/11 18:42:11 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void algorithm(t_list **stack_a, t_list **stack_b, t_struct result)
 		two_towers(stack_a, stack_b, medi);
 		// ft_printf("--%d--", *((*stack_a)->content));
 		tiny_sort(stack_a, stack_b);
-		two_towers1(stack_a, stack_b, result.len);
+		//two_towers1(stack_a, stack_b, result.len);
 		while ((*stack_b) != NULL)
 			two_towers1(stack_a, stack_b, result.len);
 		two_towers2(stack_a, stack_b);

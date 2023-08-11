@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 14:53:34 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/10 18:29:59 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/11 18:43:53 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_list
 {
 	int				costb;
 	int				costa;
+	int				cost_total;
 	int				target;
 	int				*content;
 	struct s_list	*next;
