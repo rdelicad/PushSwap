@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:25:33 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/15 18:23:10 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/15 19:31:10 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	search_lower_a(t_list *stack_a, int target_b)
 	current = stack_a;
 	while (current != NULL)
 	{
-		s.diff = abs(current->target - target_b);
+		s.diff = (current->target - target_b);
 		if (s.diff > s.min_lower)
 		{
 			s.min_lower = s.diff;
