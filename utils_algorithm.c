@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:37:48 by lxuxer            #+#    #+#             */
-/*   Updated: 2023/08/14 21:41:08 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/15 18:50:44 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ void two_towers1(t_list **stack_a, t_list **stack_b)
 		{
 			c.costa = current->costa;
 			c.costb = current->costb;
+			break;
 		}
 		current = current->next;
 	}

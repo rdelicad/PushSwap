@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:25:33 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/11 22:39:03 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/15 18:23:10 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	costa(t_list *stack_a, int target_b)
 				c.costa = i;
 			else
 				c.costa = i- c.len_stack;
+			break;
 		}
 		i++;
 		current = current->next;
@@ -62,24 +63,24 @@ int	costa(t_list *stack_a, int target_b)
 
 int	search_upper_a(t_list *stack_a, int target_b)
 {
-	t_list		*current;
-	t_search	s;
+	t_list *current;
+    t_search s;
 
-	s.target_a = 0;
-	s.min = INT_MAX;
-	current = stack_a;
-	while (current != NULL)
-	{
-		s.dist = current->target - target_b;
-		if (s.dist <= s.min && s.dist > 0)
+    s.target_a = 0;
+    s.min_upper = INT_MAX;
+
+    current = stack_a;
+    while (current != NULL) {
+        s.diff = current->target - target_b;
+        if (s.diff > 0 && s.diff <= s.min_upper) 
 		{
-			s.min = s.dist;
-			s.target_a = current->target;
-		}
-		current = current->next;
-	}
+            s.min_upper = s.diff;
+            s.target_a = current->target;
+        } 
+        current = current->next;
+    }
 	if (s.target_a == 0)
-		search_lower_a(stack_a, target_b);
+		s.target_a = search_lower_a(stack_a, target_b);
 	return (s.target_a);
 }
 
@@ -89,14 +90,14 @@ int	search_lower_a(t_list *stack_a, int target_b)
 	t_search	s;
 
 	s.target_a = 0;
-	s.min = INT_MAX;
+	s.min_lower = INT_MIN;
 	current = stack_a;
 	while (current != NULL)
 	{
-		s.dist = current->target - target_b;
-		if (s.dist <= s.min)
+		s.diff = abs(current->target - target_b);
+		if (s.diff > s.min_lower)
 		{
-			s.lower = s.dist;
+			s.min_lower = s.diff;
 			s.target_a = current->target;
 		}
 		current = current->next;

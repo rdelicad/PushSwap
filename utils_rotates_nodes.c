@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 15:34:33 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/14 21:33:22 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/15 14:08:00 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ void    reverse_rotate(t_list **stack_a, t_list **stack_b, int a, int b)
 {
     if (a > b)
 		ra_mayor_b(stack_a, stack_b, a, b);
-    else
+    else if (a < b)
         ra_minor_b(stack_a, stack_b, a, b);
+    else
+        rr_ab(stack_a, stack_b, b);
 }
 
 void    ra_mayor_b(t_list **stack_a, t_list **stack_b, int a, int b)
@@ -49,4 +51,13 @@ void    ra_minor_b(t_list **stack_a, t_list **stack_b, int a, int b)
         b--;
     }
     print_movements(*stack_a, *stack_b);
+}
+
+void    rr_ab(t_list **stack_a, t_list **stack_b, int b)
+{
+    while (b > 0)
+    {
+        rotate_r(stack_a, stack_b);
+        b--;
+    }
 }

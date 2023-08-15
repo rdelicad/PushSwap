@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 12:25:58 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/14 21:27:06 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/15 17:19:47 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void    rotate_node_a(t_list **stack_a, t_list **stack_b, int a)
         rotate_a(stack_a);
         a--;
     }
-    print_movements(*stack_a, *stack_b);
+    push_a(stack_b, stack_a);
 }
 
 void    reverse_node_a(t_list **stack_a, t_list **stack_b, int a)
@@ -41,5 +41,5 @@ void    reverse_node_a(t_list **stack_a, t_list **stack_b, int a)
         reverse_a(stack_a);
         a--;
     }
-    print_movements(*stack_a, *stack_b);
+    push_a(stack_b, stack_a);
 }

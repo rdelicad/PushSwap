@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 14:00:37 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/08 14:05:21 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/15 12:36:09 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void    reverse_b(t_list **stack_b)
 
 void    reverse_r(t_list **stack_a, t_list **stack_b)
 {
-    reverse_a(stack_a);
-    reverse_b(stack_b);
-    ft_printf("rrr");
+    reverse_stack(stack_a);
+    reverse_stack(stack_b);
+    ft_printf("rrr\n");
 }

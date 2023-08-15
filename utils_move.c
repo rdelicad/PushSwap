@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 21:03:09 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/14 21:34:03 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/15 17:15:30 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,14 @@ void    move(t_list **stack_a, t_list **stack_b, int a, int b)
             {
                 move_node_b(stack_a, stack_b, b);
                 push_a(stack_b, stack_a);
-                print_movements(*stack_a, *stack_b);
             }
             else
             {
                 move_node_a(stack_a, stack_b, a);
                 move_node_b(stack_a, stack_b, b);
                 push_a(stack_b, stack_a);
-                print_movements(*stack_a, *stack_b);
             }
         }
+        print_movements(*stack_a, *stack_b);
 }
 

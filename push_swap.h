@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:39:22 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/14 21:33:57 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/15 17:00:38 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,10 @@ typedef struct s_move
 typedef struct s_search_a
 {
 	int min;
-	int	dist;
+	int	diff;
 	int	target_a;
-	int	lower;
+	int	min_lower;
+	int min_upper;
 }	t_search;
 
 /* push_swap.c */
@@ -123,7 +124,7 @@ int			search_upper_a(t_list *stack_a, int target_b);
 void		assig_cost_nodes(t_list *stack_a, t_list *stack_b);
 
 /* utils_cost1.c */
-void		get_cost_total(t_list *stack_a, t_list *stack_b);
+void		get_cost_total(t_list *stack_b);
 int			get_min_cost(t_list *stack_a, t_list *stack_b);
 
 /* utils_towers.c */
@@ -147,11 +148,13 @@ void		reverse_node_b(t_list **stack_a, t_list **stack_b, int b);
 void		reverse_rotate(t_list **stack_a, t_list **stack_b, int a, int b);
 void		ra_mayor_b(t_list **stack_a, t_list **stack_b, int a, int b);
 void		ra_minor_b(t_list **stack_a, t_list **stack_b, int a, int b);
+void		rr_ab(t_list **stack_a, t_list **stack_b, int b);
 
 /* utils_reverses_nodes.c */
 void		reverse_reverse(t_list **stack_a, t_list **stack_b, int a, int b);
 void		rra_mayor_b(t_list **stack_a, t_list **stack_b, int a, int b);
 void		rra_minor_b(t_list **stack_a, t_list **stack_b, int a, int b);
+void    	rrr_ab(t_list **stack_a, t_list **stack_b, int b);
 
 /* utils_move.c */
 void		move(t_list **stack_a, t_list **stack_b, int a, int b);
