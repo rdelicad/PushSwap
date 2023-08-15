@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:37:48 by lxuxer            #+#    #+#             */
-/*   Updated: 2023/08/11 19:41:07 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/14 21:41:08 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void algorithm(t_list **stack_a, t_list **stack_b, t_struct result)
 		// ft_printf("--%d--", *((*stack_a)->content));
 		tiny_sort(stack_a, stack_b);
 		two_towers1(stack_a, stack_b);
-		// while ((*stack_b) != NULL)
-		// 	two_towers1(stack_a, stack_b, result.len);
-		// two_towers2(stack_a, stack_b);
+		while ((*stack_b) != NULL)
+			two_towers1(stack_a, stack_b);
+		two_towers2(stack_a, stack_b);
 	}
 	// ft_printf("--%d--", *((*stack_a)->content));
 	//  ft_printf("Mediana: %d\n", medi);
@@ -98,19 +98,25 @@ void two_towers(t_list **stack_a, t_list **stack_b, int medi)
 
 void two_towers1(t_list **stack_a, t_list **stack_b)
 {
+	t_list	*current;
 	t_cost	c;
 
 	c.target_b = get_min_cost(*stack_a, *stack_b);
-	ft_printf("target_b a mover: %d", c.target_b);
-	// move_stack_a(stack_a, target_b);
-	// while (current && current->target != target_b)
-	// {
-	// 	rotate_b(stack_b);
-	// 	current = (*stack_b);
-	// }
-	// if (current && current->target == target_b)
-	// 	push_a(stack_b, stack_a);
-	print_movements(*stack_a, *stack_b);
+	c.target_a = search_target_a(stack_a, c.target_b);
+	//ft_printf("mover target_a: %d\n", c.target_a);
+	//ft_printf("mover target_b: %d\n", c.target_b);
+	current = *stack_b;
+	while (current != NULL)
+	{
+		if (current->target == c.target_b)
+		{
+			c.costa = current->costa;
+			c.costb = current->costb;
+		}
+		current = current->next;
+	}
+	move(stack_a, stack_b, c.costa, c.costb);
+	//print_movements(*stack_a, *stack_b);
 }
 
 void two_towers2(t_list **stack_a, t_list **stack_b)

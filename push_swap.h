@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:39:22 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/11 22:39:15 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/14 21:33:57 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ int			stack_len(t_list *stack);
 
 /* utils_movements.c */
 t_list		*print_movements(t_list *stack_a, t_list *stack_b);
-void		move_stack_b(t_list **stack_a, t_list	**stack_b);
 
 
 /* utils_swap.c */
@@ -131,12 +130,30 @@ int			get_min_cost(t_list *stack_a, t_list *stack_b);
 int			half(t_list *stack);
 int			median(int *argsi, int len);
 int			*copy_argsi(int *argsi, int len);
-void		move_stack_a(t_list **stack_a, int target);
+int			search_target_a(t_list **stack_a, int target);
 int			position_target_a(t_list *stack_a, int  target_a);
 
-/* utils_towers1.c */
-void		move_a(t_list **stack_a, int target_b, t_move m);
-void   		b_minor_a(t_list **stack_a, int target_b, t_move m);
-void		b_mayor_a(t_list **stack_a, int targer_b, t_move m);
+/* utils_move_a.c */
+void		move_node_a(t_list **stack_a, t_list **stack_b, int a);
+void		rotate_node_a(t_list **stack_a, t_list **stack_b, int a);
+void		reverse_node_a(t_list **stack_a, t_list **stack_b, int a);
+
+/* utils_move_b.c */
+void		move_node_b(t_list **stack_a, t_list **stack_b, int b);
+void		rotate_node_b(t_list **stack_a, t_list **stack_b, int b);
+void		reverse_node_b(t_list **stack_a, t_list **stack_b, int b);
+
+/* utils_rotates_nodes.c */
+void		reverse_rotate(t_list **stack_a, t_list **stack_b, int a, int b);
+void		ra_mayor_b(t_list **stack_a, t_list **stack_b, int a, int b);
+void		ra_minor_b(t_list **stack_a, t_list **stack_b, int a, int b);
+
+/* utils_reverses_nodes.c */
+void		reverse_reverse(t_list **stack_a, t_list **stack_b, int a, int b);
+void		rra_mayor_b(t_list **stack_a, t_list **stack_b, int a, int b);
+void		rra_minor_b(t_list **stack_a, t_list **stack_b, int a, int b);
+
+/* utils_move.c */
+void		move(t_list **stack_a, t_list **stack_b, int a, int b);
 
 #endif

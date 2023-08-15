@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 22:54:02 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/11 22:47:08 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/14 18:48:20 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,15 @@ int get_min_cost(t_list *stack_a, t_list *stack_b)
 	}
     get_cost_total(stack_a, stack_b);
     c.min_cost = INT_MAX;
-    while (stack_b != NULL)
+    b = stack_b;
+    while (b != NULL)
     {
-        if (c.min_cost < stack_b->cost_total)
-            c.min_cost = stack_b->cost_total;
-        c.target_b = stack_b->target;
-        stack_b = stack_b->next;
+        if (c.min_cost > b->cost_total)
+        {
+            c.min_cost = b->cost_total;
+            c.target_b = b->target;
+        }
+        b = b->next;
     }
     return (c.target_b);
 }

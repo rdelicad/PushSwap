@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 09:30:50 by lxuxer            #+#    #+#             */
-/*   Updated: 2023/08/10 20:27:43 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/14 14:53:35 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,14 @@ int *copy_argsi(int *argsi, int len)
     return (copy);
 }
 
-void    move_stack_a(t_list **stack_a, int target_b)
+int    search_target_a(t_list **stack_a, int target_b)
 {
     t_move  m;
 
     m.len = stack_len(*stack_a);
     m.target_a = search_upper_a(*stack_a, target_b);
     m.posit = position_target_a(*stack_a, m.target_a);
-    move_a(stack_a, target_b, m);
-    //ft_printf("target a: %d\n", m.target_a);
+    return (m.target_a);
 }
 
 int position_target_a(t_list *stack_a, int  target_a)
