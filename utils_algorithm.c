@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:37:48 by lxuxer            #+#    #+#             */
-/*   Updated: 2023/08/15 18:50:44 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/16 13:42:54 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,26 @@ void two_towers1(t_list **stack_a, t_list **stack_b)
 
 	c.target_b = get_min_cost(*stack_a, *stack_b);
 	c.target_a = search_target_a(stack_a, c.target_b);
-	//ft_printf("mover target_a: %d\n", c.target_a);
-	//ft_printf("mover target_b: %d\n", c.target_b);
+	// for (t_list *curr = *stack_a; curr != NULL; curr = curr->next)
+	// {
+	// 	if (curr->target == c.target_a)
+	// 	{
+	// 		c.target_a = curr->target;
+	// 		c.content_a = *curr->content;
+	// 		break;
+	// 	}
+	// }
+	// for (t_list *curre = *stack_b; curre != NULL; curre = curre->next)
+	// {
+	// 	if (curre->target == c.target_b)
+	// 	{
+	// 		c.target_b = curre->target;
+	// 		c.content_b = *curre->content;
+	// 		break;
+	// 	}
+	// }
+	// ft_printf("mover target_a: %d, content_a: %d\n", c.target_a, c.content_a);
+	// ft_printf("mover target_b: %d, content_b: %d\n", c.target_b, c.content_b);
 	current = *stack_b;
 	while (current != NULL)
 	{

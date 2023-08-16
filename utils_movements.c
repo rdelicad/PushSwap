@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:11:26 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/15 19:26:27 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/16 14:19:32 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list *print_movements(t_list *stack_a, t_list *stack_b)
 
 	tmp_a = stack_a;
 	tmp_b = stack_b;
-	if (1 == 1)
+	if (1 == 0)
 	{
 		if (stack_a == NULL)
 			ft_printf("Pila vacia\n");

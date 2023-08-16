@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 13:55:25 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/09 13:53:10 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/16 11:36:45 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	push_stack(t_list **stack_init, t_list **stack_end)
 	}
 	else
 		return ;
-	//ft_printf("pp\n");
 }
 
 void    push_a(t_list **stack_b, t_list **stack_a)

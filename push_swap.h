@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:39:22 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/15 17:00:38 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/15 21:50:25 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct s_struct
 
 typedef struct s_cost
 {
+	int content_a;
+	int content_b;
 	int	target_a;
 	int	target_b;
 	int	min_cost;
