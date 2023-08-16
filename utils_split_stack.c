@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 20:04:57 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/16 21:39:19 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/16 22:18:45 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,61 +44,77 @@ void    ft_split_stack(t_list **a, t_list **b)
 
 void    ft_move1(t_list **a, t_list **b, int t)
 {
-    while (*a != NULL)
+    t_list  *curr;
+
+    curr = *a;
+    while (curr != NULL)
     {
-        if ((*a)->target == t)
+        if (curr->target == t)
         {
-            (*a)->block = 1;
-            push_a(b, a);
+            curr->block = 1;
+            push_b(a, b);
+            print_movements(*a, *b);
         }
-        if ((*b)->block == 1 && (*b)->next->block == 2)
+        if (curr->block == 1 && curr->next->block == 2)
         {
             rotate_b(b);
+            print_movements(*a, *b);
             break;
         }
-        (*a) = (*a)->next;
+        curr = curr->next;
     }
 }
 
 void    ft_move2(t_list **a, t_list **b, int t)
 {
-    while (*a != NULL)
+    t_list  *curr;
+
+    curr = *a;
+    while (curr != NULL)
     {
-        if ((*a)->target == t)
+        if (curr->target == t)
         {
-            (*a)->block = 2;
-            push_a(b, a);
+            curr->block = 2;
+            push_b(a, b);
+            print_movements(*a, *b);
             break;
         }
-        (*a) = (*a)->next;
+        curr = curr->next;
     }
 }
 
 void    ft_move3(t_list **a, t_list **b, int t)
 {
+    t_list  *curr;
+
+    curr = *a;
     (void)b;
-    while (*a != NULL)
+    while (curr != NULL)
     {
-        if ((*a)->target == t)
+        if (curr->target == t)
         {
-            (*a)->block = 3;
+            curr->block = 3;
             rotate_a(a);
+            print_movements(*a, *b);
         }
-        (*a) = (*a)->next;
+        curr = curr->next;
     }
 }
 
 void    ft_move_end(t_list **a, t_list **b)
 {
-    int len;
-    int i;
+    t_list  *curr;
+    int     len;
+    int     i;
 
+    curr = *a;
     len = stack_len(*a);
     i = 0;
-    while (i < len - 3)
+    while (curr != NULL && i < len - 3)
     {
         push_b(a, b);
         i++;
-        (*a) = (*a)->next;
+        curr = curr->next;
+        print_movements(*a, *b);
     }
 }
