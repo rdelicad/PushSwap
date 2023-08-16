@@ -26,6 +26,7 @@ SRCS = push_swap.c utils_stacks.c utils_movements.c leaks.c utils_algorithm.c\
 		utils_towers.c utils_nodes.c utils_cost.c utils_move_a.c utils_swap.c\
 		utils_rotate.c utils_push.c utils_cost.c utils_reverse.c utils_move_b.c\
 		utils_reverses_nodes.c utils_rotates_nodes.c utils_cost1.c utils_move.c\
+		utils_split_stack.c 
 		
 # Define los archivos objeto generados a partir de los fuente
 OBJS = $(SRCS:.c=.o)

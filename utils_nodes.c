@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 18:22:22 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/03 18:19:22 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/16 20:44:17 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,19 @@ t_list	*create_nodes(int *argsi, int len)
 	}
 	return (stack_a);
 }
+
+void	assign_target(t_list **stack_a)
+{
+	t_list	*current;
+
+	current = *stack_a;
+	while (current != NULL)
+	{
+		current->target = get_position(stack_a, *current->content);
+		current = current->next;
+	}
+}
+
 int	get_position(t_list **stack_a, int node_value)
 {
 	t_list	*current;
@@ -50,16 +63,4 @@ int	get_position(t_list **stack_a, int node_value)
 		current = current->next;
 	}
 	return (target);
-}
-
-void	assign_target(t_list **stack_a)
-{
-	t_list	*current;
-
-	current = *stack_a;
-	while (current != NULL)
-	{
-		current->target = get_position(stack_a, *current->content);
-		current = current->next;
-	}
 }

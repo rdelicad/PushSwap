@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 12:37:48 by lxuxer            #+#    #+#             */
-/*   Updated: 2023/08/16 13:42:54 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/16 21:39:33 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,12 @@ void algorithm(t_list **stack_a, t_list **stack_b, t_struct result)
 	else if (ft_lstsize(*stack_a) > 3)
 	{
 		two_towers(stack_a, stack_b, medi);
-		// ft_printf("--%d--", *((*stack_a)->content));
 		tiny_sort(stack_a, stack_b);
-		two_towers1(stack_a, stack_b);
+		//two_towers1(stack_a, stack_b);
 		while ((*stack_b) != NULL)
 			two_towers1(stack_a, stack_b);
 		two_towers2(stack_a, stack_b);
 	}
-	// ft_printf("--%d--", *((*stack_a)->content));
-	//  ft_printf("Mediana: %d\n", medi);
 }
 
 void tiny_sort(t_list **stack_a, t_list **stack_b)
@@ -67,32 +64,34 @@ void tiny_sort(t_list **stack_a, t_list **stack_b)
 
 void two_towers(t_list **stack_a, t_list **stack_b, int medi)
 {
-	t_tower t;
+	(void)medi;
+	ft_split_stack(stack_a, stack_b);
+	// t_tower t;
 
-	t.flag = 0;
-	t.top = 0;
-	t.i = 0;
-	t.len_a = stack_len(*stack_a);
-	while (t.i < t.len_a - 3)
-	{
-		t.len_b = stack_len(*stack_b);
-		if (*((*stack_a)->content) > medi && t.top++ < 3)
-		{
-			rotate_a(stack_a);
-			t.flag = 1;
-		}
-		else
-		{
-			push_b(stack_a, stack_b);
-			t.i++;
-		}
-		if (t.len_b > 1 && *((*stack_b)->content) <= medi && t.flag == 0)
-		{
-			if (*((*stack_b)->next->content) > medi)
-				rotate_b(stack_b);
-		}
-		t.flag = 0;
-	}
+	// t.flag = 0;
+	// t.top = 0;
+	// t.i = 0;
+	// t.len_a = stack_len(*stack_a);
+	// while (t.i < t.len_a - 3)
+	// {
+	// 	t.len_b = stack_len(*stack_b);
+	// 	if (*((*stack_a)->content) > medi && t.top++ < 3)
+	// 	{
+	// 		rotate_a(stack_a);
+	// 		t.flag = 1;
+	// 	}
+	// 	else
+	// 	{
+	// 		push_b(stack_a, stack_b);
+	// 		t.i++;
+	// 	}
+	// 	if (t.len_b > 1 && *((*stack_b)->content) <= medi && t.flag == 0)
+	// 	{
+	// 		if (*((*stack_b)->next->content) > medi)
+	// 			rotate_b(stack_b);
+	// 	}
+	// 	t.flag = 0;
+	// }
 	print_movements(*stack_a, *stack_b);
 }
 

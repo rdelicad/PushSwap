@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 14:53:34 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/11 18:43:53 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/16 21:08:52 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void    ft_swap(int *a, int *b);
 
 typedef struct s_list
 {
+	int				block;
 	int				costb;
 	int				costa;
 	int				cost_total;
