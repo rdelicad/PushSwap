@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:39:22 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/17 18:15:05 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/17 20:45:13 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ typedef struct s_struct
 
 typedef struct s_cost
 {
-	int content_a;
-	int content_b;
+	int	content_a;
+	int	content_b;
 	int	target_a;
 	int	target_b;
 	int	min_cost;
 	int	total_cost;
-	int len_stack;
+	int	len_stack;
 	int	half;
 	int	content;
 	int	costa;
@@ -56,11 +56,11 @@ typedef struct s_move
 
 typedef struct s_search_a
 {
-	int min;
+	int	min;
 	int	diff;
 	int	target_a;
 	int	min_lower;
-	int min_upper;
+	int	min_upper;
 }	t_search;
 
 /* push_swap.c */
@@ -85,7 +85,6 @@ int			stack_len(t_list *stack);
 
 /* utils_movements.c */
 t_list		*print_movements(t_list *stack_a, t_list *stack_b);
-
 
 /* utils_swap.c */
 void		swap_stack(t_list **stack);
@@ -121,7 +120,7 @@ void		ft_move_end(t_list **a, t_list **b);
 void		ft_split_stack(t_list **a, t_list **b);
 void		middle_lower(t_list **a, t_list **b, int x, int len);
 void		middle_upper(t_list **a, t_list **b, int x, int max_t);
-void		algorithm_medium(t_list **stack_a, t_list ** stack_b, int medi);
+void		algorithm_medium(t_list **stack_a, t_list **stack_b, int medi);
 
 /* Utils_algorithm.c */
 void		algorithm(t_list **stack_a, t_list **stack_b, t_struct result);
@@ -140,13 +139,14 @@ void		assig_cost_nodes(t_list *stack_a, t_list *stack_b);
 /* utils_cost1.c */
 void		get_cost_total(t_list *stack_b);
 int			get_min_cost(t_list *stack_a, t_list *stack_b);
+int			get_target_index(t_list *stack, int target);
 
 /* utils_towers.c */
 int			half(t_list *stack);
 int			median(int *argsi, int len);
 int			*copy_argsi(int *argsi, int len);
 int			search_target_a(t_list **stack_a, int target);
-int			position_target_a(t_list *stack_a, int  target_a);
+int			position_target_a(t_list *stack_a, int target_a);
 
 /* utils_move_a.c */
 void		move_node_a(t_list **stack_a, t_list **stack_b, int a);
@@ -168,7 +168,7 @@ void		rr_ab(t_list **stack_a, t_list **stack_b, int b);
 void		reverse_reverse(t_list **stack_a, t_list **stack_b, int a, int b);
 void		rra_mayor_b(t_list **stack_a, t_list **stack_b, int a, int b);
 void		rra_minor_b(t_list **stack_a, t_list **stack_b, int a, int b);
-void    	rrr_ab(t_list **stack_a, t_list **stack_b, int b);
+void		rrr_ab(t_list **stack_a, t_list **stack_b, int b);
 
 /* utils_move.c */
 void		move(t_list **stack_a, t_list **stack_b, int a, int b);

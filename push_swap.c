@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 16:28:49 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/17 18:09:19 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/17 20:43:59 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,6 @@ t_struct	convert_int_args(char **args)
 	return (result);
 }
 
-
 int	main(int ac, char **av)
 {
 	char		**args;
@@ -123,8 +122,6 @@ int	main(int ac, char **av)
 	t_struct	result;
 
 	//atexit(leaks);
-	// if (av == NULL)
-	// 	return (0);
 	stack_b = NULL;
 	args = valid_args(ac, av);
 	if (!args)
@@ -132,9 +129,6 @@ int	main(int ac, char **av)
 	result = convert_int_args(args);
 	stack_a = create_stack_a(result.argsi, result.len);
 	algorithm(&stack_a, &stack_b, result);
-	//ft_printf("Cantidad de numeros: %d\n", ft_lstsize(stack_a));
-	//ft_printf("Mitad: %d\n", half(stack_a));
-	//ft_printf("Mediana: %d\n", median(result.copy_argsi, result.len));
 	free_memory_split(ac, result.len, args);
 	free_memory_stacks(result.argsi, stack_a, stack_b);
 	return (0);

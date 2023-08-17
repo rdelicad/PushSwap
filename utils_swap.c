@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 13:32:32 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/08 13:50:35 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/17 21:07:44 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ void	swap_stack(t_list **stack)
 	}
 }
 
-void    swap_a(t_list **stack_a)
+void	swap_a(t_list **stack_a)
 {
-    swap_stack(stack_a);
-    ft_printf("sa\n");
+	swap_stack(stack_a);
+	ft_printf("sa\n");
 }
 
 void	swap_b(t_list **stack_b)

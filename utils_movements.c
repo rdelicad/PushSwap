@@ -6,17 +6,17 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:11:26 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/17 18:27:02 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/17 20:52:21 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
 
-t_list *print_movements(t_list *stack_a, t_list *stack_b)
+t_list	*print_movements(t_list *stack_a, t_list *stack_b)
 {
-	const t_list *tmp_a;
-	const t_list *tmp_b;
+	const t_list	*tmp_a;
+	const t_list	*tmp_b;
 
 	tmp_a = stack_a;
 	tmp_b = stack_b;

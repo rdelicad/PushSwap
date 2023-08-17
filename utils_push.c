@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 13:55:25 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/17 13:44:48 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/17 20:59:40 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ void	push_stack(t_list **stack_init, t_list **stack_end)
 		return ;
 }
 
-void    push_a(t_list **stack_b, t_list **stack_a)
+void	push_a(t_list **stack_b, t_list **stack_a)
 {
-    push_stack(stack_b, stack_a);
-    ft_printf("pa\n");
+	push_stack(stack_b, stack_a);
+	ft_printf("pa\n");
 }
 
-void    push_b(t_list **stack_a, t_list **stack_b)
+void	push_b(t_list **stack_a, t_list **stack_b)
 {
-    push_stack(stack_a, stack_b);
-    ft_printf("pb\n");
+	push_stack(stack_a, stack_b);
+	ft_printf("pb\n");
 }

@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 13:42:01 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/08 14:01:35 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/17 21:01:50 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,21 @@ void	rotate_stack(t_list **stack_head)
 	tail->next = head;
 }
 
-void    rotate_a(t_list **stack_a)
+void	rotate_a(t_list **stack_a)
 {
-    rotate_stack(stack_a);
-    ft_printf("ra\n");
+	rotate_stack(stack_a);
+	ft_printf("ra\n");
 }
 
-void    rotate_b(t_list **stack_b)
+void	rotate_b(t_list **stack_b)
 {
-    rotate_stack(stack_b);
-    ft_printf("rb\n");
+	rotate_stack(stack_b);
+	ft_printf("rb\n");
 }
 
-void    rotate_r(t_list **stack_a, t_list **stack_b)
+void	rotate_r(t_list **stack_a, t_list **stack_b)
 {
-    rotate_stack(stack_a);
-    rotate_stack(stack_b);
-    ft_printf("rr\n");
+	rotate_stack(stack_a);
+	rotate_stack(stack_b);
+	ft_printf("rr\n");
 }
