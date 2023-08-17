@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 16:28:49 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/10 22:22:37 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/17 18:09:19 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,10 @@ int	duplicates(char **args)
 	while (args[i] != NULL)
 	{
 		j = i + 1;
+		if (ft_atol(args[i]) > INT_MAX || ft_atol(args[i]) < INT_MIN)
+			return (1);
 		while (args[j] != NULL)
 		{
-			if (ft_atol(args[i]) > INT_MAX || ft_atol(args[i]) < INT_MIN
-				|| ft_atol(args[j]) > INT_MAX || ft_atol(args[j]) < INT_MIN)
-				return (1);
 			if (ft_atol(args[i]) == ft_atol(args[j]))
 				return (1);
 			j++;
@@ -70,22 +69,19 @@ char	**valid_args(int ac, char **av)
 
 	args = NULL;
 	if (ac < 2)
-	{
-		ft_printf("Error\n");
 		return (0);
-	}
-	else if (ac == 2)
+	if (ac == 2)
 		args = ft_split(av[1], ' ');
 	else if (ac > 2)
 		args = av + 1;
 	if (characters(args))
 	{
-		ft_printf("Error\n");
+		write (2, "Error\n", 6);
 		return (NULL);
 	}
 	else if (duplicates(args))
 	{
-		ft_printf("Error\n");
+		write (2, "Error\n", 6);
 		return (NULL);
 	}
 	return (args);

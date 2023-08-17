@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:39:22 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/16 21:35:18 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/17 18:15:05 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,6 @@ typedef struct s_search_a
 	int min_upper;
 }	t_search;
 
-typedef struct s_split
-{
-	int	split1;
-	int	split2;
-	int	split3;
-	int	split4;
-	int	num;
-}	t_split;
-
 /* push_swap.c */
 int			characters(char **args);
 int			duplicates(char **args);
@@ -119,12 +110,18 @@ void		reverse_a(t_list **stack_a);
 void		reverse_b(t_list **stack_b);
 void		reverse_r(t_list **stack_a, t_list **stack_b);
 
-/* utils_split_stack.c */
-void		ft_split_stack(t_list **a, t_list **b);
-void		ft_move1(t_list **a, t_list **b, int t);
-void		ft_move2(t_list **a, t_list **b, int t);
-void		ft_move3(t_list **a, t_list **b, int t);
+/* utils_split_move.c */
+void		ft_move1(t_list **a, t_list **b);
+void		ft_move2(t_list **a, t_list **b);
+void		ft_move3(t_list **a, t_list **b);
+void		ft_move4(t_list **a, t_list **b);
 void		ft_move_end(t_list **a, t_list **b);
+
+/* utils_split_stack */
+void		ft_split_stack(t_list **a, t_list **b);
+void		middle_lower(t_list **a, t_list **b, int x, int len);
+void		middle_upper(t_list **a, t_list **b, int x, int max_t);
+void		algorithm_medium(t_list **stack_a, t_list ** stack_b, int medi);
 
 /* Utils_algorithm.c */
 void		algorithm(t_list **stack_a, t_list **stack_b, t_struct result);
