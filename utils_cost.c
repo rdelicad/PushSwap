@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:25:33 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/17 20:55:18 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/18 14:58:12 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	costa(t_list *stack_a, int target_b)
 	t_cost	c;
 	int		i;
 
+	(void)target_b;
 	c.len_stack = stack_len(stack_a);
 	c.target_a = search_upper_a(stack_a, target_b);
 	c.half = half(stack_a);

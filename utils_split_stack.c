@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:30:07 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/17 21:07:12 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/18 12:45:52 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	middle_lower(t_list **a, t_list **b, int x, int len)
 	while (i < len)
 	{
 		flag = 1;
-		if ((*a)->target >= x * 2 && (*a)->target <= x * 3)
+		if ((*a)->target > x * 2 && (*a)->target <= x * 3)
 			ft_move2(a, b);
-		else if ((*a)->target > x && (*a)->target < x * 2)
+		else if ((*a)->target > x && (*a)->target <= x * 2)
 			ft_move3(a, b);
 		else
 		{
@@ -70,12 +70,12 @@ void	middle_upper(t_list **a, t_list **b, int x, int max_t)
 	top = 0;
 	while (i < len - 3)
 	{
-		if ((*a)->target >= x * 3 && (*a)->target <= max_t && top < 3)
-		{
-			rotate_a(a);
-			top++;
-		}
-		if ((*a)->target >= x * 3 && (*a)->target <= max_t)
+		// if ((*a)->target >= x * 3 && (*a)->target <= max_t && top < 3)
+		// {
+		// 	rotate_a(a);
+		// 	top++;
+		// }
+		if ((*a)->target > x * 3 && (*a)->target <= max_t)
 			ft_move1(a, b);
 		else if ((*a)->target <= x)
 			ft_move4(a, b);
@@ -87,33 +87,17 @@ void	algorithm_medium(t_list **a, t_list **b, int medi)
 {
 	t_tower	t;
 
-	t.flag = 0;
-	t.top = 0;
 	t.i = 0;
 	t.len_a = stack_len(*a);
 	while (t.i < t.len_a - 3)
 	{
 		t.len_b = stack_len(*b);
-		if (*((*a)->content) > medi && t.top++ < 3)
+		push_b(a, b);
+		if (t.len_b > 1 && *((*b)->content) >= medi)
 		{
-			rotate_a(a);
-			t.flag = 1;
-			print_movements(*a, *b);
-		}
-		else
-		{
-			push_b(a, b);
-			t.i++;
-			print_movements(*a, *b);
-		}
-		if (t.len_b > 1 && *((*b)->content) <= medi && t.flag == 0)
-		{
-			if (*((*b)->next->content) > medi)
-			{
+			if (*((*b)->next->content) < medi)
 				rotate_b(b);
-				print_movements(*a, *b);
-			}
 		}
-		t.flag = 0;
+		t.i++;
 	}
 }

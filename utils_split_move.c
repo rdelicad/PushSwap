@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 20:04:57 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/17 21:04:56 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/18 11:57:53 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ void	ft_move4(t_list **a, t_list **b)
 	print_movements(*a, *b);
 	if ((*b)->next != NULL)
 	{
-		if ((*b)->block == 4 && ((*b)->next->block == 1 || (*b)->next->block == 3))
+		if ((*b)->block == 4 && ((*b)->next->block == 1 \
+		|| (*b)->next->block == 3))
 		{
 			rotate_b(b);
 			print_movements(*a, *b);
