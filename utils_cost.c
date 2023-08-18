@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:25:33 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/18 14:58:12 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/18 15:56:09 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,17 +106,17 @@ int	search_lower_a(t_list *stack_a, int target_b)
 	return (s.target_a);
 }
 
-void	assig_cost_nodes(t_list *stack_a, t_list *stack_b)
-{
-	t_list	*a;
-	t_list	*b;
+// void	assig_cost_nodes(t_list *stack_a, t_list *stack_b)
+// {
+// 	t_list	*a;
+// 	t_list	*b;
 
-	a = stack_a;
-	b = stack_b;
-	costb(b);
-	while (b != NULL)
-	{
-		costa(a, b->target);
-		b = b->next;
-	}
-}
+// 	a = stack_a;
+// 	b = stack_b;
+// 	costb(b);
+// 	while (b != NULL)
+// 	{
+// 		costa(a, b->target);
+// 		b = b->next;
+// 	}
+// }

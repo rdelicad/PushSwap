@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 16:28:49 by rdelicad          #+#    #+#             */
-/*   Updated: 2023/08/17 20:43:59 by rdelicad         ###   ########.fr       */
+/*   Updated: 2023/08/18 15:53:45 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,6 @@ int	main(int ac, char **av)
 	t_list		*stack_b;
 	t_struct	result;
 
-	//atexit(leaks);
 	stack_b = NULL;
 	args = valid_args(ac, av);
 	if (!args)
